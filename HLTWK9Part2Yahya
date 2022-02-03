@@ -1,0 +1,28 @@
+library(ggplot2)
+library(scales)
+
+x = c(2,6,10,16,24)
+y = c(1,7,13,15,15)
+z = c(2,4,6,8,10)
+m1 = matplot(cbind(x,y,z), type='l') +title("Graph using 3 vectors")
+
+name = c("Tom", "Rachel", "Dean", "Aisha", "Adin")
+age = c(23, 27, 38, 30, 34)
+role = c("Business Analyst", "Data Scientist",
+         "Cyber Security", "Business Intelligence", "Data Scientist")
+los = c(4, 10, 15, 5, 13)
+employee = data.frame(name, age, role, lengthOfService = los)
+employee
+qplot(data=employee, x=age, y=los, colour=role) +xlim(20, 40) +ylim(2, 20) +
+  labs(x = "Age", y = "Length of Service", colour = "Role") +
+  title("Correlation between age and length of service")
+barplot(los, names.arg = name, col = "blue")
+
+name1 = readline(prompt = "What is your name?")
+age1 = readline(prompt = "How old are you?")
+print(paste("Your name is", name1, "you are", age1, "years old"))
+
+numbers = seq(20, 50)
+sum(numbers)
+mean(numbers)
+runif(10, min=-50, max=50)
